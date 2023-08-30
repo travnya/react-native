@@ -1,23 +1,31 @@
-import { AppRegistry, StyleSheet, View } from "react-native";
+import { Platform, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { Navbar } from "./src/components/Navbar/Navbar";
 import React from "react";
 import { Todo } from "./src/components/Todo/components/Todo";
+import { useStore } from "effector-react";
+import { $theme } from "./src/lib/theme/theme";
+import { MainTodoWrapper } from "./src/styles/main.styles";
 
-export const App = () => {
+const App = () => {
+  // theme
+  const theme = useStore($theme);
+
   return (
-    <>
+    <SafeAreaView style={styles.mainWrapper}>
       <Navbar />
-      <View style={styles.container}>
+      <MainTodoWrapper theme={theme}>
         <Todo />
-      </View>
-    </>
+      </MainTodoWrapper>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    gap: 20,
-    padding: 20,
+  mainWrapper: {
+    flex: 1,
+    // backgroundColor: "orange",
+    paddingTop: Platform.OS === "android" ? 25 : 0,
   },
 });
+
+export default App;

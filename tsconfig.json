@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
-    // "baseUrl": ".",
+    // "baseUrl": "./",
     // "paths": {
-    //   "@components/*": ["./components"]
+    //   "@components/*": ["src/components"],
+    //   "@assets/*": ["assets"]
     // }
   },
   "extends": "expo/tsconfig.base",
-  "exclude": ["node_modules", "expo"],
-  "include": ["src"]
+  "exclude": ["node_modules", ".expo"],
+  "include": ["src"],
+  "target": "es6",
+  "compileOnSave": true
 }

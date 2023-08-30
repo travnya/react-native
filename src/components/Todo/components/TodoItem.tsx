@@ -29,7 +29,6 @@ export const TodoItem: FC<IProps> = ({
     text: {
       textDecorationLine: done ? "line-through" : "none",
       fontSize: 18,
-      color: done ? "#037A37" : "#000000",
     },
   });
 

@@ -24,7 +24,7 @@ export const Todo = () => {
   return (
     <>
       <TodoHeader setTodos={setTodos} todos={todos} />
-      <ScrollView style={{ ...styles.todosWrapper, rowGap: 20 }}>
+      <ScrollView style={styles.todosWrapper}>
         {todos?.map((todo, index) => (
           <TodoItem todo={todo} setTodos={setTodos} key={index} index={index} />
         ))}

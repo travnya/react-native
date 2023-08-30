@@ -1,21 +1,19 @@
 import { FC } from "react";
-import { StyleSheet, Text, TextProps } from "react-native";
+import { TextProps } from "react-native";
+import { StyledParagraph } from "./Paragraph.styles";
+import { useStore } from "effector-react";
+import { $theme } from "../../lib/theme/theme";
 
 interface IProps extends TextProps {
   text: string;
 }
 
 export const Paragraph: FC<IProps> = ({ text, ...textProps }) => {
+  const theme = useStore($theme);
+
   return (
-    <Text style={styles.paragraph} {...textProps}>
+    <StyledParagraph theme={theme} {...textProps}>
       {text}
-    </Text>
+    </StyledParagraph>
   );
 };
-
-const styles = StyleSheet.create({
-  paragraph: {
-    fontSize: 18,
-    fontWeight: "500",
-  },
-});
